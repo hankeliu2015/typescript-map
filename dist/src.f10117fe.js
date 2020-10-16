@@ -100495,6 +100495,16 @@ function () {
     });
   }
 
+  CustomMap.prototype.addMarker = function (user) {
+    new google.maps.Marker({
+      map: this.googleMap,
+      position: {
+        lat: user.location.lat,
+        lng: user.location.lng
+      }
+    });
+  };
+
   return CustomMap;
 }(); //end of class
 
@@ -100514,10 +100524,10 @@ var Company_1 = require("./Company");
 var customMap_1 = require("./customMap");
 
 var user = new User_1.User();
-console.log(user);
 var company = new Company_1.Company();
-console.log(company);
-new customMap_1.CustomMap('map');
+var customMap = new customMap_1.CustomMap('map');
+customMap.addMarker(user);
+customMap.addMarker(company);
 },{"./User":"src/User.ts","./Company":"src/Company.ts","./customMap":"src/customMap.ts"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
