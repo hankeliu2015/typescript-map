@@ -100495,12 +100495,12 @@ function () {
     });
   }
 
-  CustomMap.prototype.addMarker = function (user) {
+  CustomMap.prototype.addMarker = function (mappable) {
     new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: user.location.lat,
-        lng: user.location.lng
+        lat: mappable.location.lat,
+        lng: mappable.location.lng
       }
     });
   };
