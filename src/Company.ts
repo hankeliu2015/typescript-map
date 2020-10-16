@@ -17,5 +17,8 @@ constructor() {
   }
 }
 
+  markerContent(): string {
+    return `Company Name: ${this.companyName}`
+  }
 
 }   //end of class
