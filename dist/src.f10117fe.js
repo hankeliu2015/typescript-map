@@ -100475,7 +100475,8 @@ function () {
 
 exports.Company = Company;
 },{"faker":"node_modules/faker/index.js"}],"src/customMap.ts":[function(require,module,exports) {
-"use strict";
+"use strict"; // import {User} from './User';
+// import {Company} from './Company';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -100496,12 +100497,20 @@ function () {
   }
 
   CustomMap.prototype.addMarker = function (mappable) {
-    new google.maps.Marker({
+    var _this = this;
+
+    var marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng
       }
+    });
+    marker.addListener('click', function () {
+      var InfoWindow = new google.maps.InfoWindow({
+        content: 'Hi there'
+      });
+      InfoWindow.open(_this.googleMap, marker);
     });
   };
 
