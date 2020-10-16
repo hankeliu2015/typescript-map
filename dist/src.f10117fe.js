@@ -100474,7 +100474,33 @@ function () {
 
 
 exports.Company = Company;
-},{"faker":"node_modules/faker/index.js"}],"src/index.ts":[function(require,module,exports) {
+},{"faker":"node_modules/faker/index.js"}],"src/customMap.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CustomMap = void 0;
+
+var CustomMap =
+/** @class */
+function () {
+  function CustomMap(divId) {
+    this.googleMap = new google.maps.Map(document.getElementById(divId), {
+      zoom: 1,
+      center: {
+        lat: 0,
+        lng: 0
+      }
+    });
+  }
+
+  return CustomMap;
+}(); //end of class
+
+
+exports.CustomMap = CustomMap;
+},{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -100485,18 +100511,14 @@ var User_1 = require("./User");
 
 var Company_1 = require("./Company");
 
+var customMap_1 = require("./customMap");
+
 var user = new User_1.User();
 console.log(user);
 var company = new Company_1.Company();
 console.log(company);
-new google.maps.Map(document.getElementById('map'), {
-  zoom: 1,
-  center: {
-    lat: 0,
-    lng: 0
-  }
-});
-},{"./User":"src/User.ts","./Company":"src/Company.ts"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+new customMap_1.CustomMap('map');
+},{"./User":"src/User.ts","./Company":"src/Company.ts","./customMap":"src/customMap.ts"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
